@@ -1,0 +1,47 @@
+.list-users,
+.canvas {
+  width: 50%;
+  height: 100%;
+}
+.list-users {
+  overflow-y: scroll;
+}
+.user-card {
+  height: 120px;
+  min-height: 120px;
+  color: #0d2551;
+  overflow-wrap: break-word;
+  border-left: 7px solid #0d2551;
+  transform: scale(1);
+  box-shadow: 0 5px 18px 5px rgba(199, 199, 199, 0.3),
+    0 5px 5px rgba(151, 150, 150, 0.22);
+}
+.user-card .delete-icon {
+  right: 15px;
+  cursor: pointer;
+}
+.user-card:hover {
+  transform: scale(1.01);
+}
+@media (max-width: 768px) {
+  .result {
+    flex-wrap: wrap;
+  }
+  .list-users,
+  .canvas {
+    width: 100%;
+  }
+}
+@media (max-width: 500px) {
+  .user-card {
+    height: 100px;
+    min-height: 100px;
+  }
+  .user-card strong {
+    font-size: 3vw;
+  }
+  .user-card .delete-icon img {
+    width: 18px;
+    height: 18px;
+  }
+}

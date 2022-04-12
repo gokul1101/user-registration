@@ -1,0 +1,47 @@
+.custom-file-upload input[type="file"] {
+  display: none;
+}
+.custom-file-upload {
+  display: inline-block;
+  cursor: pointer;
+  color: #fff;
+  background-color: #0d2551;
+  border: 1px solid #0d2551;
+  border-radius: 12px;
+}
+.custom-file-upload:hover {
+  color: #0d2551;
+  background-color: #fff;
+}
+#canvas {
+  border: 1px solid #0d2551;
+}
+.color-picker .box {
+  width: 15px;
+  height: 15px;
+  border: 1px solid #000;
+  transform: scale(1);
+  cursor: pointer;
+}
+.color-picker .selected {
+  border: 2px solid #000;
+  transform: scale(1.1);
+}
+#red {
+  background-color: red;
+}
+#black {
+  background-color: black;
+}
+#blue {
+  background-color: blue;
+}
+#green {
+  background-color: green;
+}
+#yellow {
+  background-color: yellow;
+}
+#orange {
+  background-color: orange;
+}
