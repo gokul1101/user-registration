@@ -45,3 +45,55 @@
 #orange {
   background-color: orange;
 }
+@media (min-width: 1440px) {
+  #canvas {
+    width: 600px;
+    height: 500px;
+  }
+}
+@media (max-width: 1024px) {
+  #canvas {
+    width: 600px;
+    height: 500px;
+  }
+  #canvas {
+    margin: 0 auto;
+  }
+}
+@media (max-width: 768px) {
+  #canvas {
+    width: 400px;
+    height: 400px;
+  }
+}
+@media (max-width: 480px) {
+  #canvas {
+    width: 280px;
+    height: 280px;
+  }
+  .custom-file-upload,
+  .color-picker span {
+    font-size: 10px;
+  }
+  .tools {
+    width: 12px;
+    height: 12px;
+  }
+  .color-picker .box {
+    width: 12px;
+    height: 12px;
+  }
+  .color-picker .selected {
+    border: 1px solid #000;
+  }
+}
+@media (max-width: 320px) {
+  #canvas {
+    width: 250px;
+    height: 250px;
+  }
+  .custom-file-upload,
+  .color-picker span {
+    font-size: 8px;
+  }
+}

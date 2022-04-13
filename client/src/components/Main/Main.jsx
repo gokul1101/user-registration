@@ -11,7 +11,7 @@ const Main = ({ showAlert }) => {
   const [users, setUsers] = useState([]);
   const [canvaImage, setCanvaImage] = useState(null);
   const [pickColor, setPickColor] = useState("black");
-  const [isPen, setIsPen] = useState(false);
+  const [isPen, setIsPen] = useState(true);
   const fetchUsers = async () => {
     try {
       const { status, message, users } = await helperService.getAllUsers();
@@ -40,7 +40,7 @@ const Main = ({ showAlert }) => {
   }, []);
   return (
     <div className="result bg-light w-100 h-100 d-flex ml-2">
-      <div className="list-users p-md-3 p-2">
+      <div className="list-users p-md-3 py-3 px-2">
         {users.length !== 0 ? (
           <>
             <div className="header">
@@ -102,7 +102,7 @@ const Main = ({ showAlert }) => {
             </div>
           </>
         ) : (
-          <div className="empty-div h-50 d-flex flex-column align-items-center justify-content-center">
+          <div className="empty-div h-100 d-flex flex-column align-items-center justify-content-center">
             <div className="header">
               <h1 className="font-weight-bolder">No users registered</h1>
             </div>

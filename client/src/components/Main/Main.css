@@ -23,13 +23,19 @@
 .user-card:hover {
   transform: scale(1.01);
 }
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .result {
     flex-wrap: wrap;
+  }
+  .list-users {
+    height: 70%;
   }
   .list-users,
   .canvas {
     width: 100%;
+  }
+  .canvas {
+    height: auto !important;
   }
 }
 @media (max-width: 500px) {
@@ -43,5 +49,8 @@
   .user-card .delete-icon img {
     width: 18px;
     height: 18px;
+  }
+  .empty-div .header h1 {
+    font-size: 22px;
   }
 }

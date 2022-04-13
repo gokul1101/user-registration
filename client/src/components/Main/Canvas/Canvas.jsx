@@ -132,10 +132,11 @@ const Canvas = ({
     let myCanvas = canvasRef.current;
     let ctx = myCanvas.getContext("2d");
     ctx.globalCompositeOperation = "source-over";
-    myCanvas.width = 1200;
-    myCanvas.height = 900;
-    myCanvas.style.width = "600px";
-    myCanvas.style.height = "450px";
+    ctx.translate(0.5, 0.5);
+    myCanvas.width = 600;
+    myCanvas.height = 500;
+    // myCanvas.style.width = "600px";
+    // myCanvas.style.height = "600px";
     setMyCanvas(myCanvas);
     setCtx(ctx);
     document.addEventListener("mousedown", onMouseDown);
@@ -149,9 +150,9 @@ const Canvas = ({
     };
   });
   return (
-    <div className="canvas bg-white d-flex flex-column p-3">
+    <div className="canvas bg-white d-flex flex-column  justify-content-center  p-3">
       <div className="d-flex align-items-center justify-content-between mb-3">
-        <div className="mt-2 ml-3">
+        <div className="mt-2 ml-md-3 ml-1">
           <label className="custom-file-upload p-2">
             <input onChange={(e) => drawImage(e)} type="file" />
             Choose an image
@@ -205,11 +206,11 @@ const Canvas = ({
           </div>
         </div>
         <div
-          className="tools mr-3"
+          className="tools mr-md-3 mr-1"
           onClick={() => props.setIsPen(!props.isPen)}
         >
           <img
-            src={props.isPen ? Quill : Eraser}
+            src={props.isPen ? Eraser : Quill}
             width="25px"
             height="25px"
             alt="tool"
