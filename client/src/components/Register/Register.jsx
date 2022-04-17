@@ -42,6 +42,7 @@ const Register = ({ showAlert, socket }) => {
       if (status === 201) {
         showAlert("Registered Successfully.", "success");
         socket.emit("new", {
+          _id: newUser._id,
           firstname: firstName,
           lastname: lastName,
           email,
