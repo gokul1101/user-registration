@@ -7,8 +7,8 @@ const {
 const createUser = async (req, res) => {
   const userDetails = req.body;
   try {
-    let { status, message } = await createUserService(userDetails);
-    return res.status(status).json(message);
+    let { status, ...data } = await createUserService(userDetails);
+    return res.status(status).json(data);
   } catch ({ status = 500, message = "Internal Server Error" }) {
     return res.status(status).send(message);
   }

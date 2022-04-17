@@ -38,9 +38,15 @@ const Register = ({ showAlert, socket }) => {
         lastname: lastName.trim(),
         email: email.trim(),
       });
+      console.log(newUser);
       if (status === 201) {
         showAlert("Registered Successfully.", "success");
-        socket.emit("new", newUser);
+        socket.emit("new", {
+          firstname: firstName,
+          lastname: lastName,
+          email,
+          created_at: newUser.created_at,
+        });
       }
       setFirstName("");
       setLastName("");

@@ -6,12 +6,11 @@ const helperService = {
     try {
       let {
         status,
-        data: { message, newUser },
+        data: { newUser },
       } = await axios.post(`${baseURL}/user/create`, payload, config);
       if (status === 201) {
         return Promise.resolve({
           status,
-          message,
           newUser,
         });
       }
