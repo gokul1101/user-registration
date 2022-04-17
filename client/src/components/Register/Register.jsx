@@ -33,14 +33,14 @@ const Register = ({ showAlert, socket }) => {
       return;
     }
     try {
-      const { status } = await helperService.createUser({
+      const { status, newUser } = await helperService.createUser({
         firstname: firstName.trim(),
         lastname: lastName.trim(),
         email: email.trim(),
       });
       if (status === 201) {
         showAlert("Registered Successfully.", "success");
-        socket.emit("new", { firstname: firstName, lastname: lastName, email });
+        socket.emit("new", newUser);
       }
       setFirstName("");
       setLastName("");

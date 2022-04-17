@@ -15,6 +15,7 @@ const createUserService = async (userDetails) => {
     return Promise.resolve({
       status: 201,
       message: "User created Successfully.",
+      newUser,
     });
   } catch (e) {
     console.log(e);
