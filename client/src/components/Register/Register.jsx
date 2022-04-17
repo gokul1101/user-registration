@@ -4,7 +4,7 @@ import IDCard from "../../images/id-card.png";
 import Mail from "../../images/mail.png";
 import Avatar from "../../images/avatar.png";
 import helperService from "../../apis/helperService";
-const Register = ({ showAlert }) => {
+const Register = ({ showAlert, socket }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -38,7 +38,10 @@ const Register = ({ showAlert }) => {
         lastname: lastName.trim(),
         email: email.trim(),
       });
-      if (status === 201) showAlert("Registered Successfully.", "success");
+      if (status === 201) {
+        showAlert("Registered Successfully.", "success");
+        socket.emit("new", { firstname: firstName, lastname: lastName, email });
+      }
       setFirstName("");
       setLastName("");
       setEmail("");

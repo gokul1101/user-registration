@@ -7,7 +7,8 @@ import Empty from "../../images/empty.svg";
 import helperService from "../../apis/helperService";
 import "./Main.css";
 import Canvas from "./Canvas/Canvas";
-const Main = ({ showAlert }) => {
+
+const Main = ({ showAlert, socket }) => {
   const [users, setUsers] = useState([]);
   const [canvaImage, setCanvaImage] = useState(null);
   const [pickColor, setPickColor] = useState("black");
@@ -27,9 +28,14 @@ const Main = ({ showAlert }) => {
     try {
       const { status, message } = await helperService.deleteUser({ id });
       if (status === 202) {
-        let filteredUsers = users.filter((user) => user._id !== id);
+        let delUser;
+        let filteredUsers = users.filter((user) => {
+          if (user._id === id) delUser = user.email;
+          return user._id !== id;
+        });
         setUsers(filteredUsers);
         showAlert(message, "success");
+        socket.emit("remove", { email: delUser });
       }
     } catch ({ message = "Error in deleting user." }) {
       showAlert(message, "danger");
@@ -38,6 +44,12 @@ const Main = ({ showAlert }) => {
   useEffect(() => {
     fetchUsers();
   }, []);
+  useEffect(() => {
+    socket &&
+      socket.on("users", (data) => {
+        setUsers(data);
+      });
+  }, [socket]);
   return (
     <div className="result bg-light w-100 h-100 d-flex ml-2">
       <div className="list-users p-md-3 py-3 px-2">
